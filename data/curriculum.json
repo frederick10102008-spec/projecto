@@ -1,0 +1,469 @@
+{
+  "course": {
+    "id": "python-zero-to-intermediate",
+    "title": "Aprende Python Desde Cero",
+    "subtitle": "Ruta estructurada para dominar los fundamentos y la lógica de programación",
+    "totalLessons": 18,
+    "totalXp": 1250
+  },
+  "modules": [
+    {
+      "id": "mod-1",
+      "number": 1,
+      "title": "Fundamentos y Primeros Pasos",
+      "description": "Comprende qué es programar, cómo piensa una computadora, la función print y el uso de variables.",
+      "icon": "sparkles",
+      "lessons": [
+        {
+          "id": "m1-l1",
+          "number": "1.1",
+          "title": "Tu Primer Código: ¡Hola Mundo!",
+          "badge": "Inicio",
+          "xp": 50,
+          "summary": "Escribe y ejecuta tu primera instrucción en Python usando print().",
+          "theory": "### ¿Qué es programar?\nProgramar es darle una serie de instrucciones precisas a una computadora para que realice una tarea.\n\nEn Python, la forma más sencilla de comunicarte con la pantalla es mediante la función **`print()`**.\n\n```python\nprint(\"¡Hola, CodeStart!\")\n```\n\n#### Reglas importantes:\n1. El texto que quieres mostrar debe ir dentro de **comillas dobles** `\"...\"` o simples `'...'`. A este texto se le llama **String** (cadena de caracteres).\n2. Los paréntesis `(` y `)` le indican a Python que estás ejecutando una función.\n3. Python es sensible a mayúsculas: `print` debe ir en minúsculas. `Print` daría un error.",
+          "objective": "Escribe un programa que imprima exactamente en pantalla: `¡Hola, CodeStart!`",
+          "starterCode": "# Escribe tu código aquí debajo:\nprint(\"...\")\n",
+          "solutionCode": "print(\"¡Hola, CodeStart!\")\n",
+          "hints": [
+            "Recuerda usar la función print() con paréntesis.",
+            "El texto debe ir entre comillas: \"¡Hola, CodeStart!\"",
+            "Asegúrate de incluir los signos de exclamación: ¡ y !"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Muestra el saludo exacto",
+              "expected": "¡Hola, CodeStart!",
+              "hidden": false
+            }
+          ],
+          "quiz": {
+            "question": "¿Qué ocurre si escribes Print(\"Hola\") con la 'P' mayúscula en Python?",
+            "options": [
+              "Funciona igual porque Python no distingue mayúsculas",
+              "Dará un error de NameError porque Python es sensible a mayúsculas",
+              "Imprime el texto en negrita",
+              "Guarda el texto en un archivo de texto"
+            ],
+            "correctIndex": 1,
+            "explanation": "Python es 'case-sensitive' (distingue mayúsculas y minúsculas). La función oficial es 'print' con minúscula."
+          }
+        },
+        {
+          "id": "m1-l2",
+          "number": "1.2",
+          "title": "Variables: Las Cajas de Memoria",
+          "badge": "Concepto Clave",
+          "xp": 50,
+          "summary": "Almacena información reutilizable en variables y conoce los tipos de datos principales.",
+          "theory": "### ¿Qué es una variable?\nImagina una variable como una **caja etiquetada** donde guardas un dato en la memoria del ordenador para usarlo más adelante.\n\n```python\nnombre = \"Ana\"         # Texto (str)\nedad = 21              # Número entero (int)\naltura = 1.68          # Número decimal (float)\nes_estudiante = True   # Booleano (bool: True o False)\n```\n\n#### Reglas para nombrar variables:\n- Usa nombres descriptivos en minúsculas (ej: `precio_total`, no `p`).\n- No pueden empezar con números ni tener espacios.\n- En Python se suele usar estilo `snake_case` (palabras unidas por guion bajo `_`).",
+          "objective": "Crea una variable llamada `lenguaje` con el valor `\"Python\"` y una variable llamada `nivel` con el valor `1`. Luego, imprime el valor de `lenguaje`.",
+          "starterCode": "# 1. Crea la variable lenguaje con el texto \"Python\"\n# 2. Crea la variable nivel con el número 1\n# 3. Imprime lenguaje usando print()\n",
+          "solutionCode": "lenguaje = \"Python\"\nnivel = 1\nprint(lenguaje)\n",
+          "hints": [
+            "Para asignar un valor a una variable usa el signo igual `=`: lenguaje = \"Python\"",
+            "Los números no llevan comillas: nivel = 1",
+            "Para imprimir una variable no le pongas comillas: print(lenguaje)"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Imprime el contenido de la variable",
+              "expected": "Python",
+              "hidden": false
+            }
+          ],
+          "quiz": {
+            "question": "¿Cuál de los siguientes nombres de variable es VÁLIDO y sigue las buenas prácticas de Python?",
+            "options": [
+              "2do_lugar = 10",
+              "nombre estudiante = \"Carlos\"",
+              "puntos_usuario = 150",
+              "class = \"Primero\""
+            ],
+            "correctIndex": 2,
+            "explanation": "'puntos_usuario' es válido porque usa snake_case, no empieza por número y no tiene espacios ni es palabra reservada."
+          }
+        },
+        {
+          "id": "m1-l3",
+          "number": "1.3",
+          "title": "Operaciones Matemáticas y f-strings",
+          "badge": "Práctica",
+          "xp": 75,
+          "summary": "Aprende a sumar, restar, multiplicar y a formatear texto dinámicamente con f-strings.",
+          "theory": "### Operadores aritméticos en Python\nPython puede funcionar como una calculadora súper potente:\n\n- `+` Suma (`5 + 2 = 7`)\n- `-` Resta (`10 - 4 = 6`)\n- `*` Multiplicación (`3 * 4 = 12`)\n- `/` División decimal (`7 / 2 = 3.5`)\n- `//` División entera (`7 // 2 = 3`)\n- `%` Módulo o residuo (`7 % 2 = 1`)\n- `**` Potencia (`2 ** 3 = 8`)\n\n### Formateo con f-strings:\nPara mezclar texto y variables de forma limpia y moderna, añade una `f` antes de las comillas e inserta las variables entre llaves `{}`:\n\n```python\nproducto = \"Café\"\nprecio = 3.50\nprint(f\"El {producto} cuesta ${precio}\")\n# Salida: El Café cuesta $3.5\n```",
+          "objective": "Calcula el total de una cuenta. Tienes `precio = 12` y `cantidad = 3`. Crea una variable `total` que multiplique `precio * cantidad`, y luego imprime: `Total: 36` usando un f-string o print.",
+          "starterCode": "precio = 12\ncantidad = 3\n\n# Calcula el total multiplicando precio por cantidad\ntotal = ...\n\n# Imprime: Total: {total}\n",
+          "solutionCode": "precio = 12\ncantidad = 3\ntotal = precio * cantidad\nprint(f\"Total: {total}\")\n",
+          "hints": [
+            "Usa el asterisco * para multiplicar: total = precio * cantidad",
+            "Usa un f-string: print(f\"Total: {total}\")",
+            "Asegúrate de que haya un espacio después de los dos puntos."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Calcula e imprime Total: 36",
+              "expected": "Total: 36",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-2",
+      "number": 2,
+      "title": "Toma de Decisiones (Condicionales)",
+      "description": "Enseña a tu código a tomar decisiones lógicas con if, elif y else.",
+      "icon": "git-branch",
+      "lessons": [
+        {
+          "id": "m2-l1",
+          "number": "2.1",
+          "title": "El Poder del 'if' e Indentación",
+          "badge": "Lógica",
+          "xp": 50,
+          "summary": "Aprende a ejecutar código solo cuando se cumple una condición.",
+          "theory": "### ¿Cómo toma decisiones un programa?\nUsamos la palabra clave **`if`** (si condicional). Si la condición se evalúa como `True`, el bloque de código interior se ejecuta.\n\n```python\npuntos = 100\nif puntos >= 80:\n    print(\"¡Aprobaste el examen!\")\n```\n\n#### ⚠️ La Indentación (Sangría):\nEn Python, la indentación (espacios al inicio de la línea, típicamente **4 espacios**) es obligatoria. Le indica a Python qué líneas están DENTRO del `if`.\n\nOperadores de comparación:\n- `==` Igual a (ojo: `= ` es asignación, `==` es comparación)\n- `!=` Diferente de\n- `>` Mayor que\n- `<` Menor que\n- `>=` Mayor o igual\n- `<=` Menor o igual",
+          "objective": "Verifica si una persona puede votar. La variable `edad = 20`. Si `edad >= 18`, imprime `\"Puede votar\"`.",
+          "starterCode": "edad = 20\n\n# Escribe tu condición if aquí:\nif edad >= 18:\n    # No olvides indentar con 4 espacios o Tab\n    print(\"...\")\n",
+          "solutionCode": "edad = 20\nif edad >= 18:\n    print(\"Puede votar\")\n",
+          "hints": [
+            "Escribe 'if edad >= 18:' con dos puntos al final.",
+            "La siguiente línea debe estar indentada con 4 espacios.",
+            "Imprime exactamente \"Puede votar\"."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Imprime Puede votar cuando edad >= 18",
+              "expected": "Puede votar",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m2-l2",
+          "number": "2.2",
+          "title": "Dos Caminos: 'if' y 'else'",
+          "badge": "Práctica",
+          "xp": 75,
+          "summary": "Maneja el camino alternativo cuando la condición no se cumple.",
+          "theory": "### La estructura if - else\n¿Qué pasa si la condición es falsa? Usamos **`else`** (de lo contrario).\n\n```python\ntemperatura = 15\nif temperatura > 25:\n    print(\"Día caluroso\")\nelse:\n    print(\"Día fresco\")\n```\n\nEl bloque `else:` nunca lleva una condición directa; se ejecuta automáticamente cuando el `if` previo resulta ser falso.",
+          "objective": "Dado `saldo = 50` y `precio_articulo = 80`, si el saldo es mayor o igual al precio, imprime `\"Compra aprobada\"`. De lo contrario (`else`), imprime `\"Fondos insuficientes\"`.",
+          "starterCode": "saldo = 50\nprecio_articulo = 80\n\nif saldo >= precio_articulo:\n    print(\"Compra aprobada\")\nelse:\n    print(\"...\")\n",
+          "solutionCode": "saldo = 50\nprecio_articulo = 80\nif saldo >= precio_articulo:\n    print(\"Compra aprobada\")\nelse:\n    print(\"Fondos insuficientes\")\n",
+          "hints": [
+            "Completa el print dentro del bloque else.",
+            "El texto exacto debe ser: Fondos insuficientes"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Muestra fondos insuficientes",
+              "expected": "Fondos insuficientes",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m2-l3",
+          "number": "2.3",
+          "title": "Múltiples Opciones: 'elif' y Lógica Booleana",
+          "badge": "Reto",
+          "xp": 100,
+          "summary": "Clasifica resultados en múltiples rangos con elif y combina condiciones con and y or.",
+          "theory": "### Encadenar condiciones con elif\nCuando tienes más de dos alternativas, no uses muchos `if` anidados. Usa **`elif`** (abreviatura de *else if*):\n\n```python\nnota = 85\nif nota >= 90:\n    print(\"Excelente\")\nelif nota >= 80:\n    print(\"Muy bien\")\nelif nota >= 70:\n    print(\"Aprobado\")\nelse:\n    print(\"Reprobado\")\n```\n\nPython evalúa en orden descendente. En cuanto encuentra la primera condición verdadera, ejecuta su bloque y salta el resto.",
+          "objective": "Crea un semáforo lógico. La variable `luz = \"amarillo\"`. Si `luz == \"verde\"`, imprime `\"Avanzar\"`. Si `luz == \"amarillo\"`, imprime `\"Precaución\"`. Si `luz == \"rojo\"`, imprime `\"Detenerse\"`. Para cualquier otro color, imprime `\"Luz desconocida\"`.",
+          "starterCode": "luz = \"amarillo\"\n\nif luz == \"verde\":\n    print(\"Avanzar\")\nelif luz == \"amarillo\":\n    # Completa aquí\n    print(\"...\")\nelif luz == \"rojo\":\n    print(\"Detenerse\")\nelse:\n    print(\"Luz desconocida\")\n",
+          "solutionCode": "luz = \"amarillo\"\nif luz == \"verde\":\n    print(\"Avanzar\")\nelif luz == \"amarillo\":\n    print(\"Precaución\")\nelif luz == \"rojo\":\n    print(\"Detenerse\")\nelse:\n    print(\"Luz desconocida\")\n",
+          "hints": [
+            "Reemplaza los puntos suspensivos por 'Precaución' con tilde.",
+            "Verifica que luz esté asignado a 'amarillo'."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Identifica la luz amarilla",
+              "expected": "Precaución",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-3",
+      "number": 3,
+      "title": "Bucles y Automatización",
+      "description": "Automatiza tareas repetitivas y comprende los ciclos for y while.",
+      "icon": "repeat",
+      "lessons": [
+        {
+          "id": "m3-l1",
+          "number": "3.1",
+          "title": "El Bucle 'for' y 'range()'",
+          "badge": "Repetición",
+          "xp": 50,
+          "summary": "Repite una acción un número determinado de veces con for.",
+          "theory": "### ¿Por qué repetir a mano cuando el ordenador lo hace en milisegundos?\nEl bucle **`for`** recorre una secuencia. La función **`range(inicio, fin, paso)`** genera una serie de números:\n\n```python\nfor i in range(1, 4):\n    print(f\"Iteración número {i}\")\n```\n*Salida:*\n- `Iteración número 1`\n- `Iteración número 2`\n- `Iteración número 3`\n\n⚠️ **Nota clave:** `range(1, 4)` se detiene antes del 4. El límite superior nunca se incluye.",
+          "objective": "Usa un bucle `for` y `range(1, 6)` para imprimir los números del 1 al 5, cada uno en una línea.",
+          "starterCode": "# Imprime los números del 1 al 5 usando un bucle for\nfor numero in range(1, 6):\n    print(numero)\n",
+          "solutionCode": "for numero in range(1, 6):\n    print(numero)\n",
+          "hints": [
+            "La variable 'numero' tomará los valores 1, 2, 3, 4, 5.",
+            "Llama a print(numero) dentro del bucle indentado."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Secuencia numérica completa",
+              "expected": "1\n2\n3\n4\n5",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m3-l2",
+          "number": "3.2",
+          "title": "Acumuladores y Sumas en Bucles",
+          "badge": "Lógica",
+          "xp": 75,
+          "summary": "Aprende a acumular valores en una variable a lo largo de un ciclo.",
+          "theory": "### El patrón del Acumulador\nUn acumulador es una variable que empieza típicamente en cero y va sumando valores en cada iteración:\n\n```python\ntotal = 0\nfor valor in [10, 20, 30]:\n    total += valor  # Equivale a: total = total + valor\nprint(f\"El total es: {total}\") # 60\n```\n\nEl operador `+=` suma el valor de la derecha a la variable existente.",
+          "objective": "Calcula la suma de los números del 1 al 10 (inclusive) usando un acumulador `suma = 0` y un bucle `for i in range(1, 11):`. Al terminar el bucle, imprime: `Suma: 55`.",
+          "starterCode": "suma = 0\n\nfor i in range(1, 11):\n    # Suma 'i' a la variable 'suma'\n    suma += i\n\n# Imprime el resultado final fuera del bucle\nprint(f\"Suma: {suma}\")\n",
+          "solutionCode": "suma = 0\nfor i in range(1, 11):\n    suma += i\nprint(f\"Suma: {suma}\")\n",
+          "hints": [
+            "Dentro del for escribe 'suma += i' con indentación.",
+            "El print debe estar FUERA del bucle (sin indentar a la izquierda).",
+            "La suma de 1 a 10 es 55."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Suma acumulada de 1 a 10",
+              "expected": "Suma: 55",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m3-l3",
+          "number": "3.3",
+          "title": "El Bucle 'while' y Control de Flujo",
+          "badge": "Reto",
+          "xp": 100,
+          "summary": "Ejecuta código mientras una condición siga siendo verdadera.",
+          "theory": "### El bucle while\nA diferencia del `for` (que se repite un número conocido de veces), el bucle **`while`** continúa mientras su condición sea `True`:\n\n```python\ncontador = 3\nwhile contador > 0:\n    print(contador)\n    contador -= 1\nprint(\"¡Despegue!\")\n```\n\n⚠️ **Peligro:** Si olvidas actualizar la variable dentro del bucle (`contador -= 1`), la condición siempre será verdadera y crearás un **bucle infinito**.",
+          "objective": "Escribe una cuenta regresiva que empiece en `cuenta = 3`. Con un bucle `while cuenta > 0`, imprime el número y luego réstale 1. Al terminar el bucle, imprime `¡Despegue!`.",
+          "starterCode": "cuenta = 3\n\nwhile cuenta > 0:\n    print(cuenta)\n    cuenta -= 1\n\nprint(\"¡Despegue!\")\n",
+          "solutionCode": "cuenta = 3\nwhile cuenta > 0:\n    print(cuenta)\n    cuenta -= 1\nprint(\"¡Despegue!\")\n",
+          "hints": [
+            "Asegúrate de decrementar 'cuenta -= 1' en cada paso.",
+            "Imprime '¡Despegue!' al final fuera del bucle."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Cuenta regresiva y despegue",
+              "expected": "3\n2\n1\n¡Despegue!",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-4",
+      "number": 4,
+      "title": "Estructuras de Datos (Listas y Diccionarios)",
+      "description": "Organiza conjuntos de información con listas ordenadas y diccionarios clave-valor.",
+      "icon": "database",
+      "lessons": [
+        {
+          "id": "m4-l1",
+          "number": "4.1",
+          "title": "Listas en Python: Guardando Colecciones",
+          "badge": "Estructuras",
+          "xp": 50,
+          "summary": "Crea listas, accede a elementos por su índice y agrégales datos.",
+          "theory": "### Las Listas\nUna lista es una colección ordenada y modificable de elementos entre corchetes `[...]`:\n\n```python\nfrutas = [\"manzana\", \"plátano\", \"cereza\"]\nprint(frutas[0])  # \"manzana\" (índice 0 = primer elemento)\nprint(len(frutas)) # 3 (cantidad de elementos)\n\nfrutas.append(\"naranja\") # Añade al final\n```\n\nEn informática, **los índices casi siempre empiezan en 0**, no en 1.",
+          "objective": "Crea una lista llamada `tecnologias` que contenga `[\"Python\", \"JavaScript\"]`. Luego, usa `.append(\"HTML\")` para añadir `\"HTML\"`. Finalmente, imprime la longitud de la lista usando `print(len(tecnologias))`.",
+          "starterCode": "tecnologias = [\"Python\", \"JavaScript\"]\n\n# Añade \"HTML\" a la lista con append\ntecnologias.append(\"HTML\")\n\n# Imprime la longitud de la lista\nprint(len(tecnologias))\n",
+          "solutionCode": "tecnologias = [\"Python\", \"JavaScript\"]\ntecnologias.append(\"HTML\")\nprint(len(tecnologias))\n",
+          "hints": [
+            "Usa tecnologias.append(\"HTML\")",
+            "len(tecnologias) devuelve la cantidad de elementos, que ahora será 3."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Longitud de la lista es 3",
+              "expected": "3",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m4-l2",
+          "number": "4.2",
+          "title": "Diccionarios: Clave y Valor",
+          "badge": "Estructuras",
+          "xp": 75,
+          "summary": "Modela entidades del mundo real mediante pares de clave y valor.",
+          "theory": "### Diccionarios en Python\nMientras que las listas se acceden por posición numérica (0, 1, 2), los **diccionarios** se acceden por nombre de **clave** entre llaves `{...}`:\n\n```python\nestudiante = {\n    \"nombre\": \"Valentina\",\n    \"carrera\": \"Ingeniería\",\n    \"semestre\": 3\n}\n\nprint(estudiante[\"nombre\"]) # Valentina\nestudiante[\"semestre\"] = 4   # Actualizar valor\n```",
+          "objective": "Crea un diccionario llamado `usuario` con las claves `\"nombre\": \"Lucas\"` y `\"nivel\": 5`. Luego imprime en pantalla: `Usuario: Lucas - Nivel: 5` usando un f-string.",
+          "starterCode": "usuario = {\n    \"nombre\": \"Lucas\",\n    \"nivel\": 5\n}\n\n# Imprime: Usuario: {usuario['nombre']} - Nivel: {usuario['nivel']}\nprint(f\"Usuario: {usuario['nombre']} - Nivel: {usuario['nivel']}\")\n",
+          "solutionCode": "usuario = {\n    \"nombre\": \"Lucas\",\n    \"nivel\": 5\n}\nprint(f\"Usuario: {usuario['nombre']} - Nivel: {usuario['nivel']}\")\n",
+          "hints": [
+            "Accede a los valores con usuario['nombre'] y usuario['nivel'].",
+            "Formatea el texto exactamente como se indica."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Impresión de datos del diccionario",
+              "expected": "Usuario: Lucas - Nivel: 5",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-5",
+      "number": 5,
+      "title": "Funciones y Modularidad",
+      "description": "Empaqueta código en funciones reutilizables con parámetros y valores de retorno.",
+      "icon": "cpu",
+      "lessons": [
+        {
+          "id": "m5-l1",
+          "number": "5.1",
+          "title": "Creando tus Propias Funciones ('def')",
+          "badge": "Funciones",
+          "xp": 50,
+          "summary": "Escribe bloques de código reutilizables con la palabra clave def.",
+          "theory": "### ¿Qué es una función?\nUna función es una mini-máquina que recibe datos de entrada (parámetros), realiza un proceso y produce un resultado.\n\n```python\ndef saludar(nombre):\n    print(f\"¡Hola, {nombre}! Bienvenido a CodeStart.\")\n\n# Llamada o invocación a la función:\nsaludar(\"Mateo\")\nsaludar(\"Sofía\")\n```\n\nPrincipio **DRY** (*Don't Repeat Yourself*): No escribas lo mismo dos veces si puedes envolverlo en una función.",
+          "objective": "Define una función llamada `saludo_personalizado(nombre)` que imprima `\"Bienvenido, \"` seguido del nombre. Luego llama a la función pasándole `\"Carlos\"`.",
+          "starterCode": "def saludo_personalizado(nombre):\n    print(f\"Bienvenido, {nombre}\")\n\n# Llama a tu función aquí:\nsaludo_personalizado(\"Carlos\")\n",
+          "solutionCode": "def saludo_personalizado(nombre):\n    print(f\"Bienvenido, {nombre}\")\n\nsaludo_personalizado(\"Carlos\")\n",
+          "hints": [
+            "Recuerda la palabra clave 'def' antes del nombre de la función.",
+            "Llama a la función fuera de la definición: saludo_personalizado(\"Carlos\")"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Llamada a función con saludo",
+              "expected": "Bienvenido, Carlos",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m5-l2",
+          "number": "5.2",
+          "title": "La Diferencia Vital: 'return' vs 'print'",
+          "badge": "Concepto Clave",
+          "xp": 75,
+          "summary": "Comprende por qué return devuelve un valor para seguir operando con él.",
+          "theory": "### 'print' muestra; 'return' entrega\nEste es el error más común en los estudiantes principiantes:\n\n- `print()` solo muestra texto en la consola humana. La computadora **no puede reutilizar** ese resultado.\n- `return` envía el valor de vuelta al lugar donde se llamó la función, permitiendo guardarlo en una variable o pasarlo a otra función.\n\n```python\ndef calcular_area(base, altura):\n    return (base * altura) / 2\n\narea_triangulo = calcular_area(10, 5) # Guarda 25.0 en la variable\nprint(f\"Área: {area_triangulo}\")\n```",
+          "objective": "Crea una función `duplicar(numero)` que use `return` para devolver el doble del número (`numero * 2`). Luego guarda el resultado de `duplicar(15)` en una variable `resultado` e imprímela.",
+          "starterCode": "def duplicar(numero):\n    return numero * 2\n\nresultado = duplicar(15)\nprint(resultado)\n",
+          "solutionCode": "def duplicar(numero):\n    return numero * 2\n\nresultado = duplicar(15)\nprint(resultado)\n",
+          "hints": [
+            "Usa return numero * 2",
+            "resultado = duplicar(15) almacenará 30",
+            "print(resultado) imprimirá 30"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Devuelve y muestra 30",
+              "expected": "30",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-6",
+      "number": 6,
+      "title": "Reto Integrador (Nivel Intermedio)",
+      "description": "Aplica todo lo aprendido en un mini-proyecto completo con manejo de excepciones y lógica de negocio.",
+      "icon": "trophy",
+      "lessons": [
+        {
+          "id": "m6-l1",
+          "number": "6.1",
+          "title": "Programas a Prueba de Fallos: 'try / except'",
+          "badge": "Intermedio",
+          "xp": 75,
+          "summary": "Aprende a capturar errores para que tu aplicación no se cuelgue ante fallos.",
+          "theory": "### Manejo de Excepciones\nCuando ocurre un error (dividir por cero, dato incorrecto), Python detiene el programa. Con **`try`** y **`except`**, puedes interceptar el error con elegancia:\n\n```python\ntry:\n    numero = int(\"no_soy_numero\")\nexcept ValueError:\n    print(\"Error: El valor ingresado no es un número válido.\")\n```",
+          "objective": "Crea una función `division_segura(a, b)`. Dentro de un bloque `try`, retorna `a / b`. Si ocurre una excepción `ZeroDivisionError`, retorna `\"No se puede dividir por cero\"`. Luego imprime `division_segura(10, 0)`.",
+          "starterCode": "def division_segura(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return \"No se puede dividir por cero\"\n\nprint(division_segura(10, 0))\n",
+          "solutionCode": "def division_segura(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return \"No se puede dividir por cero\"\n\nprint(division_segura(10, 0))\n",
+          "hints": [
+            "Coloca 'return a / b' dentro de try.",
+            "Captura 'except ZeroDivisionError:' y retorna el mensaje amigable."
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Maneja división por cero adecuadamente",
+              "expected": "No se puede dividir por cero",
+              "hidden": false
+            }
+          ]
+        },
+        {
+          "id": "m6-l2",
+          "number": "6.2",
+          "title": "Proyecto Final: Calculadora de Carrito de Compras",
+          "badge": "Proyecto Final",
+          "xp": 150,
+          "summary": "Construye un sistema que recorra una lista de productos, aplique descuentos y sume totales.",
+          "theory": "### ¡Tu primer proyecto de software completo!\nVas a integrar:\n1. Listas de diccionarios (cada producto tiene nombre y precio).\n2. Bucles `for` para sumar los precios.\n3. Condicionales `if` para aplicar un descuento del 10% si el subtotal supera los $100.\n4. Formateo con f-strings para mostrar el recibo.",
+          "objective": "Dada la lista `carrito`, calcula la suma total. Si la suma supera 100, aplica un 10% de descuento (`total = subtotal * 0.90`). Imprime exactamente: `Total a pagar: $135.0` (o el total correspondiente).",
+          "starterCode": "carrito = [\n    {\"nombre\": \"Teclado Mecánico\", \"precio\": 80.0},\n    {\"nombre\": \"Mouse Gamer\", \"precio\": 45.0},\n    {\"nombre\": \"Mousepad\", \"precio\": 25.0}\n]\n\nsubtotal = 0.0\nfor item in carrito:\n    subtotal += item[\"precio\"]\n\n# Si subtotal > 100, aplica 10% de descuento:\nif subtotal > 100:\n    total = subtotal * 0.90\nelse:\n    total = subtotal\n\nprint(f\"Total a pagar: ${total}\")\n",
+          "solutionCode": "carrito = [\n    {\"nombre\": \"Teclado Mecánico\", \"precio\": 80.0},\n    {\"nombre\": \"Mouse Gamer\", \"precio\": 45.0},\n    {\"nombre\": \"Mousepad\", \"precio\": 25.0}\n]\n\nsubtotal = 0.0\nfor item in carrito:\n    subtotal += item[\"precio\"]\n\nif subtotal > 100:\n    total = subtotal * 0.90\nelse:\n    total = subtotal\n\nprint(f\"Total a pagar: ${total}\")\n",
+          "hints": [
+            "Suma cada item['precio'] al subtotal (80 + 45 + 25 = 150).",
+            "Como 150 > 100, multiplica 150 * 0.90 = 135.0",
+            "Imprime Total a pagar: ${total}"
+          ],
+          "testType": "output_contains",
+          "tests": [
+            {
+              "id": "t1",
+              "name": "Cálculo con descuento aplicado",
+              "expected": "Total a pagar: $135.0",
+              "hidden": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
